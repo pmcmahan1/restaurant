@@ -40,7 +40,7 @@ const $content = document.getElementById("content");
       ["text-center", "white"],
       "A piece of serenity from the Gifu prefecture."
     );
-    const $button = createHtmlElement("button", null, null, "view menu");
+    const $button = createHtmlElement("button", null, ["button"], "view menu");
   
     $main.appendChild($title);
     $main.appendChild($subtitle);
@@ -89,11 +89,9 @@ const $content = document.getElementById("content");
 
     const $title = createHtmlElement("h1", null, ["gray"], "Menu");
   
-    const $hr = document.createElement("hr");
-  
 
     $main.appendChild($title);
-    $main.appendChild($hr);
+
   
     menu.forEach((item) => {
       const $div = createHtmlElement("div", null, ["menu-item"], null);
@@ -111,7 +109,7 @@ const $content = document.getElementById("content");
       $div.appendChild($name);
       $div.appendChild($description);
       $div.appendChild($price);
-      $div.appendChild($hr);
+
   
       $main.appendChild($div);
     });
@@ -128,7 +126,7 @@ const $content = document.getElementById("content");
 
     const content =
       "This would be alot of backstory to have to create from imagination, so i'm just going to use lorem ipsum! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non elementum metus. Donec ac nisi eget ligula elementum finibus in a quam. Curabitur sit amet pretium ante. Aliquam molestie auctor feugiat. Vivamus at ullamcorper tellus, non viverra mi. Pellentesque convallis porttitor volutpat. Nunc non orci iaculis, congue augue sed, ultricies lectus. Nullam nec ligula quis nulla commodo finibus in vel erat.";
-    const $p = createHtmlElement("p", null, ["menu-item"], content);
+    const $p = createHtmlElement("p", null, ["about-text"], content);
   
     $main.appendChild($title);
     $main.appendChild($p);
