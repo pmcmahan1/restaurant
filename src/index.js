@@ -32,7 +32,7 @@ const $content = document.getElementById("content");
     function renderHome() {
     const $main = document.createElement("main");
   
-    const $title = createHtmlElement("h1", null, ["white"], "Mitake Sushi");
+    const $title = createHtmlElement("h1", null, null, "Mitake Sushi");
   
     const $subtitle = createHtmlElement(
       "p",
@@ -87,24 +87,24 @@ const $content = document.getElementById("content");
     const $main = document.createElement("main");
     $main.classList.add("main");
 
-    const $title = createHtmlElement("h1", null, ["gray"], "Menu");
+    const $title = createHtmlElement("h1", null, null, "Menu");
   
 
     $main.appendChild($title);
 
   
     menu.forEach((item) => {
-      const $div = createHtmlElement("div", null, ["menu-item"], null);
+      const $div = createHtmlElement("div", null, null, null);
   
-      const $name = createHtmlElement("h2", null, ["golden"], item.name);
+      const $name = createHtmlElement("h2", null, null, item.name);
       const $description = createHtmlElement(
         "p",
         null,
         ["gray"],
         item.description
       );
-      const $price = createHtmlElement("h2", null, ["golden"], item.price);
-      const $hr = createHtmlElement("hr", null, ["menu-hr"], null);
+      const $price = createHtmlElement("h2", null, null, item.price);
+      const $hr = createHtmlElement("hr", null, null, null);
   
       $div.appendChild($name);
       $div.appendChild($description);
@@ -121,7 +121,7 @@ const $content = document.getElementById("content");
     const $main = document.createElement("main");
     $main.classList.add("main");
 
-    const $title = createHtmlElement("h1", null, ["gray"], "Where we're from");
+    const $title = createHtmlElement("h1", null, null, "Where we're from");
   
 
     const content =
