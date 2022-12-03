@@ -33,6 +33,12 @@ li {
     text-transform: uppercase;
   }
 
+li:hover {
+    border-bottom: 2px solid #c59d5f;
+    padding-bottom: 4px;
+    cursor: pointer;
+  }
+
 main {
     height: 100%;
     max-height: calc(100% - 188px);
@@ -42,11 +48,11 @@ main {
     align-items: center;
   }
 
-  footer {
+footer {
     height: 94px;
     border-top: 2px solid #c59d5f;
     display: flex;
   }
-  footer p {
+footer p {
     margin: auto;
   }

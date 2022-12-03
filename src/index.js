@@ -1,9 +1,8 @@
-console.log("Hello world");
 
 const $content = document.getElementById("content");
 
 // Creates the elements of html, easier to use then making it by scratch
-function createHtmlElement(type, id, arrayClasses, content) {
+    function createHtmlElement(type, id, arrayClasses, content) {
     const element = document.createElement(type);
     if (id) element.id = id;
     if (arrayClasses)
@@ -15,7 +14,7 @@ function createHtmlElement(type, id, arrayClasses, content) {
   }
 
 //Navbar creation
-function renderNav() {
+    function renderNav() {
     const navItems = ["home", "menu", "about"];
     const $ul = document.createElement("ul");
   
@@ -30,7 +29,7 @@ function renderNav() {
   }
   
 //Homepage creation
-function renderHome() {
+    function renderHome() {
     const $main = document.createElement("main");
   
     const $title = createHtmlElement("h1", null, ["white"], "Mitake Sushi");
@@ -51,7 +50,7 @@ function renderHome() {
   }
 
 //Footer creation
-function renderFooter() {
+    function renderFooter() {
     const $footer = document.createElement("footer");
     const $p = createHtmlElement(
       "p",
@@ -62,9 +61,109 @@ function renderFooter() {
     $footer.appendChild($p);
     $content.appendChild($footer);
   }
+//Menu page creation
+  const menu = [
+    {
+      name: "Hokkaido Sushi Boat",
+      description:
+        "A lovely boat of sushi with a bunch of stuff you can eat hooray.",
+      price: "40$",
+    },
+    {
+      name: "Nagoya Roll",
+      description:
+        "This roll has all you can imagine inside of it!",
+      price: "15$",
+    },
+    {
+      name: "Fried Squid Nigiri",
+      description:
+        "I know, it sounds weird right, but trust me it's good!",
+      price: "20$",
+    },
+  ];
+  
+  function renderMenu() {
+    const $main = document.createElement("main");
+    $main.classList.add("main");
 
+    const $title = createHtmlElement("h1", null, ["gray"], "Menu");
+  
+    const $hr = document.createElement("hr");
+  
 
-//Runs all the functions to generate the webpage
-renderNav();
-renderHome();
-renderFooter();
+    $main.appendChild($title);
+    $main.appendChild($hr);
+  
+    menu.forEach((item) => {
+      const $div = createHtmlElement("div", null, ["menu-item"], null);
+  
+      const $name = createHtmlElement("h2", null, ["golden"], item.name);
+      const $description = createHtmlElement(
+        "p",
+        null,
+        ["gray"],
+        item.description
+      );
+      const $price = createHtmlElement("h2", null, ["golden"], item.price);
+      const $hr = createHtmlElement("hr", null, ["menu-hr"], null);
+  
+      $div.appendChild($name);
+      $div.appendChild($description);
+      $div.appendChild($price);
+      $div.appendChild($hr);
+  
+      $main.appendChild($div);
+    });
+  
+    $content.appendChild($main);
+  }
+  
+  function renderAbout() {
+    const $main = document.createElement("main");
+    $main.classList.add("main");
+
+    const $title = createHtmlElement("h1", null, ["gray"], "Where we're from");
+  
+
+    const content =
+      "This would be alot of backstory to have to create from imagination, so i'm just going to use lorem ipsum! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non elementum metus. Donec ac nisi eget ligula elementum finibus in a quam. Curabitur sit amet pretium ante. Aliquam molestie auctor feugiat. Vivamus at ullamcorper tellus, non viverra mi. Pellentesque convallis porttitor volutpat. Nunc non orci iaculis, congue augue sed, ultricies lectus. Nullam nec ligula quis nulla commodo finibus in vel erat.";
+    const $p = createHtmlElement("p", null, ["menu-item"], content);
+  
+    $main.appendChild($title);
+    $main.appendChild($p);
+  
+    $content.appendChild($main);
+  }
+  
+
+function homePage() {
+    $content.innerHTML = "";
+    renderNav();
+    renderHome();
+    renderFooter();
+}
+function menuPage() {
+    $content.innerHTML = "";
+    renderNav();
+    renderMenu();
+    renderFooter();
+}
+function aboutPage() {
+    $content.innerHTML = "";
+    renderNav();
+    renderAbout();
+    renderFooter();
+}
+
+//generates homepage on site load
+homePage();
+
+//event listener for clicking to switch pages
+document.addEventListener("click", (e) => {
+    const target = e.target.innerText;
+  
+    if (target === "HOME") homePage();
+    if (target === "MENU" || target === "view menu") menuPage();
+    if (target === "ABOUT") aboutPage();
+  });
