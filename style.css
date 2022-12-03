@@ -33,10 +33,13 @@ li {
     text-transform: uppercase;
   }
 
-.main {
+main {
     height: 100%;
     max-height: calc(100% - 188px);
-    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   footer {
